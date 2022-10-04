@@ -1,0 +1,170 @@
+<div class="content-header">
+  <div class="d-flex align-items-center">
+    <div class="mr-auto">
+      <div class="d-inline-block align-items-center">
+        <nav>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="#"
+                ><h4><i class="fa fa-server" style="font-size:24px"></i></h4
+              ></a>
+            </li>
+            <li class="breadcrumb-item" aria-current="page">
+              <h4>list of requests</h4>
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Main content -->
+<section class="content">
+  <div class="row">
+    <div class="col-12 col-xl-6">
+      <div class="box">
+        <div class="box-header with-border">
+          <h4 class="box-title">waiting list</h4>
+
+          <ul class="box-controls pull-right d-md-flex d-none">
+            <li class="dropdown">
+              <button
+              style="font-size:15px"
+                class="btn btn-success dropdown-toggle px-10"
+                data-toggle="dropdown"
+                href="#"
+              >
+              search by training 
+              </button>
+              <div class="dropdown-menu dropdown-menu-right">
+                <a
+                  class="dropdown-item"
+                  *ngFor="let itm of formation"
+                  (click)="onSubmit(itm.id)"
+                >
+                  {{ itm.titre }}</a
+                >
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div *ngFor="let item of demande">
+        <div class="box-body"   >
+          <div class="d-flex align-items-center mb-25">
+            <span
+              class="bullet bullet-bar bg-success align-self-stretch"
+            ></span>
+
+            <div class="h-20 mx-20 flex-shrink-0">
+              <input
+                type="checkbox"
+                id="{{ item.id }}"
+                (click)="removeTheme(item.id)"
+                class="filled-in chk-col-success"
+              />
+
+              <label for="{{ item.id }}" class="h-20 p-10 mb-0"></label>
+            </div>
+            <div class="media py-10 px-0">
+              <a class="avatar avatar-lg " href="#">
+                <img src="{{ base_picture + item.users.photo }}" alt="..." />
+              </a>
+              <div class="media-body">
+                <p class="font-size-16">
+                  <a class="hover-primary" href="#"
+                    ><u>{{ item.users.username }}</u>
+                    <p>Sent a request to participate {{item.date | date: "yyyy-MM-dd" }}</p>
+
+                  </a>
+                </p>
+              </div>
+            </div>
+
+            <div class="col-xl-2 col-6 text-center align-self-center mb-20">
+              <mat-slide-toggle
+                autocomplete="off"
+                (click)="activeAprenent(item.id)"
+              ></mat-slide-toggle>
+              <div class="handle"></div>
+            </div>
+          </div>
+
+          <div class="text-center bt-1 border-light p-10">
+            <a class="text-uppercase d-block font-size-12"> </a>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-xl-6">
+      <div class="box bg-success-light">
+        <div class="box-header with-border">
+          <h4 class="box-title text-success">Accepted list</h4>
+          <ul class="box-controls pull-right d-md-flex d-none">
+            <li class="dropdown">
+              
+              <!-- <div class="dropdown-menu dropdown-menu-right">
+                <a
+                  class="dropdown-item"
+                  *ngFor="let itm of formation"
+                  (click)="onSubmit(itm.id)"
+                >
+                  {{ itm.titre }}</a
+                >
+              </div> -->
+            </li>
+          </ul>
+        </div>
+        <div *ngFor="let itemm of demandeActive; let isFirst = first">
+        <div class="box-body"  *ngIf="!isFirst">
+
+          <div
+            class="d-flex align-items-center mb-25"
+            
+          >
+            <div class="d-flex align-items-center mb-25">
+              <span
+                class="bullet bullet-bar bg-success align-self-stretch"
+              ></span>
+
+              <div class="h-20 mx-20 flex-shrink-0">
+                <input
+                  type="checkbox"
+                  id="{{ itemm.id }}"
+                  (click)="removeTheme(itemm.id)"
+                  class="filled-in chk-col-success"
+                />
+
+                <label for="{{ itemm.id }}" class="h-20 p-10 mb-0"></label>
+              </div>
+              <div class="media py-10 px-0">
+                <a class="avatar avatar-lg " href="#">
+                  <img src="{{ base_picture + itemm.users.photo }}" alt="..." />
+                </a>
+                <div class="media-body">
+                 
+                  <p class="font-size-16">
+                   
+                    <a class="hover-primary" href="#"
+                      ><u>{{ itemm.users.username }}</u>
+                      
+                      <p>Request for participation has been accepted at ' {{itemm.date | date: "yyyy-MM-dd" }} '</p>
+                      
+                    </a>
+
+                  </p>
+                </div>
+              </div>
+            </div>
+
+        
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.row -->
+</section>

@@ -1,0 +1,91 @@
+<section class="content">
+    <div class="content-header">
+        <div class="d-flex align-items-center">
+            <div class="mr-auto">
+                
+           <h2 class="page-title"></h2>
+
+                <div class="d-inline-block align-items-center">
+                    <nav>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#"> <h4>   <i class="ti-view-list-alt"></i> </h4></a></li>
+                     
+                            <li class="breadcrumb-item active" aria-current="page"><h4> List of training</h4></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br /><br /><br />
+    <br />
+  <div class="row fx-element-overlay">
+    <div class="box no-shadow mb-0 bg-transparent">
+      <div class="box-header no-border px-1">
+        <div style="text-align: right"></div>
+      </div>
+    </div>
+
+    <br /><br /><br />
+    <br />
+
+    <div class="col-md-6 col-lg-3" *ngFor="let item of demande; let i = index">
+      <div class="card">
+        <div class="fx-card-item">
+          <div class="fx-card-avatar fx-overlay-1">
+            <img src="{{ base_picture + item.formationn.photo }}" alt="user" />
+            <div class="fx-overlay">
+              <ul class="fx-info">
+                <li>
+                  <a
+                    class="btn btn-danger no-border"
+                    [routerLink]="['/home/detailformation', item.formationn.id]"
+                    href="javascript:void(0);"
+                    >View More</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="cour-stac d-flex align-items-center">
+            <!-- <p>Start Date {{ item.date_deDebut | date: "yyyy-MM-dd" }}</p>
+                <p class="lt-sp">|</p>
+                <p> {{ item.id  }}</p> -->
+          </div>
+          <h5>
+            <b
+              class="card-title justify-content-between d-flex align-items-center"
+            >
+              {{ item.formationn.titre }}
+            </b>
+          </h5>
+
+          <p class="card-text">{{ item.formationn.description }}</p>
+          <p>
+            Start Date {{ item.formationn.date_deDebut | date: "yyyy-MM-dd" }}
+          </p>
+        </div>
+
+        <div class="card-footer justify-content-between d-flex">
+          <span class="text-muted">
+            <!-- <img
+                class="avatar avatar-14 rounded-circle bg-warning-light"
+                src="{{ base_picture + item[0].users.photo }}"
+                alt="..."
+              /> -->
+          </span>
+          <br />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- /.content -->
+
+<!-- Popup Model Plase Here -->
+
+<!-- /Popup Model Plase Here -->

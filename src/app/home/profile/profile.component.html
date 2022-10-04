@@ -1,0 +1,295 @@
+<div class="content-header">
+  <div class="d-flex align-items-center">
+    <div class="mr-auto">
+      <div class="d-inline-block align-items-center">
+        <nav>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="#"
+                ><h4><i class="fa fa-id-badge" aria-hidden="true"></i></h4
+              ></a>
+            </li>
+            <li class="breadcrumb-item" aria-current="page">
+              <h4>Profile</h4>
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+<br /><br />
+<!-- Main content -->
+<section class="content">
+  <div class="row">
+    <div class="col-12 col-lg-7 col-xl-8">
+      <div class="nav-tabs-custom">
+        <!-- /.tab-pane -->
+
+        <!-- /.tab-pane -->
+
+     
+        <!-- /.tab-pane -->
+
+        <!-- /.tab-content -->
+
+        <ul class="nav nav-tabs">
+          <li><a href="#usertimeline" data-toggle="tab">Personal Information</a></li>
+          <li>
+            <a class="active" href="#activity" data-toggle="tab">Update Password</a>
+          </li>
+
+        </ul>
+
+        <div class="tab-content">
+          <div class="tab-pane" id="usertimeline">
+            <div class="box">
+        
+              <!-- /.box-header -->
+              <div class="box-body">
+                <form [formGroup]="formUser" (ngSubmit)="EditUsers()">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="form-group row">
+                        <label
+                          for="example-text-input"
+                          class="col-sm-2 col-form-label"
+                          >Name :</label
+                        >
+                        <div class="col-sm-10">
+                          <input
+                            class="form-control"
+                            type="text"
+                            value=""
+                            id="example-text-input"
+                            formControlName="username"
+                          />
+                        </div>
+                      </div>
+  
+                      <div class="form-group row">
+                        <label
+                          for="example-email-input"
+                          class="col-sm-2 col-form-label"
+                          >Email :</label
+                        >
+                        <div class="col-sm-10">
+                          <input
+                            class="form-control"
+                            type="email"
+                            id="example-email-input"
+                            formControlName="email"
+                          />
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label
+                          for="example-url-input"
+                          class="col-sm-2 col-form-label"
+                          >Address :</label
+                        >
+                        <div class="col-sm-10">
+                          <input
+                            class="form-control"
+                            type="url"
+                            id="example-url-input"
+                            formControlName="adress"
+                          />
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label
+                          for="example-tel-input"
+                          class="col-sm-2 col-form-label"
+                          >Telephone :</label
+                        >
+                        <div class="col-sm-10">
+                          <input
+                            class="form-control"
+                            type="tel"
+                            id="example-tel-input"
+                            formControlName="phone"
+                          />
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label
+                          for="example-tel-input"
+                          class="col-sm-2 col-form-label"
+                          >Role :</label
+                        >
+                        <div class="col-sm-10">
+                          <input
+                            class="form-control"
+                            type="tel"
+                            id="example-tel-input"
+                            formControlName="role"
+                            readonly
+                          />
+                        </div>
+                      </div>
+  
+                      <div class="form-group row">
+                        <div class="ml-auto col-sm-15" style="text-align:right">
+                          <button type="submit" class="btn btn-success">
+                            Submit
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- /.col -->
+                  </div>
+                </form>
+                <!-- /.row -->
+              </div>
+              <!-- /.box-body -->
+            </div>
+          </div>
+          <!-- /.tab-pane -->
+
+          <div class="active tab-pane" id="activity">
+            <div class="tab-pane" id="settings">
+              <div class="box">
+        
+                <!-- /.box-header -->
+                <div class="box-body">
+                  <form [formGroup]="formPassword">
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="form-group row">
+                          <label
+                            for="example-text-input"
+                            class="col-sm-3 col-form-label"
+                            >New Password :</label
+                          >
+                          <div class="col-sm-9">
+                            <input
+                              class="form-control"
+                              type="password"
+                              value=""
+                              id="example-text-input"
+                              formControlName="password"
+                              placeholder="New Password "
+
+                            />
+                          </div>
+                        </div>
+      
+                        <div class="form-group row">
+                          <label
+                            for="example-email-input"
+                            class="col-sm-3 col-form-label"
+                            >Confirme Password :</label
+                          >
+                          <div class="col-sm-9">
+                            <input
+                              class="form-control"
+                              type="password"
+                              id="example-email-input"
+                              formControlName="newpassword"
+                              placeholder="Confirme Password "
+                            />
+                          </div>
+                        </div>
+      
+                        <div class="form-group row">
+                          <div class="ml-auto col-sm-15" style="text-align:right">
+                            <button
+                              type="submit"
+                              class="btn btn-success"
+                              (click)="save()"
+                            >
+                              Submit
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- /.col -->
+                    </div>
+                  </form>
+                  <!-- /.row -->
+                </div>
+                <!-- /.box-body -->
+              </div>
+            </div>
+          </div>
+          <!-- /.tab-pane -->
+
+      
+          <!-- /.tab-pane -->
+        </div>
+      </div>
+      <!-- /.nav-tabs-custom -->
+    </div>
+
+    <!-- /.col -->
+
+    <div class="col-12 col-lg-5 col-xl-4">
+      <div class="card">
+      <div class="box box-widget widget-user">
+        <!-- Add the bg color to the header using any of the bg-* classes -->
+        <div
+          class="widget-user-header  p-1 h-144 bg-primary bg-temple-dark "
+       
+        >
+          <h3 class="widget-user-username"></h3>
+        </div>
+        <div class="widget-user-image">
+          <img
+            class="rounded-circle"
+            src="{{ base_picture + user.photo }}"
+            alt="User Avatar"
+          />
+        </div>
+        <div class="box-footer">
+       
+
+          <div class="row">
+
+            <div class="col-sm-4">
+              <!-- /.description-block -->
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-4 br-1 bl-1">
+              <div class="description-block">
+                <h5 class="description-header">Username</h5>
+                <span class="description-text">{{ user.username }}</span>
+              </div>
+              <!-- /.description-block -->
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-4">
+              <!-- /.description-block -->
+            </div>
+            <!-- /.col -->
+          </div>
+        </div>
+          <!-- /.row -->
+        </div>
+      </div>
+      <div class="card">
+        <div class="box">
+          <div class="box-body ">
+            <div class="row">
+              <div class="col-12">
+                <div>
+<ul>
+             <li>     <p>Email :<span class="text-gray pl-10"> {{ user.email }}</span> </p></li>
+             <li>    <p>Phone :<span class="text-gray pl-10"> +216 {{ user.phone }}</span> </p></li>
+             <li>    <p>Adresse :<span class="text-gray pl-10">{{ user.adress }}</span> </p></li>
+         </ul>    
+                
+                </div>
+              </div>
+          
+            </div>
+          </div>
+        </div>
+        <!-- /.box-body -->
+      </div>
+    </div>
+  </div>
+  <!-- /.row -->
+
+
+</section>

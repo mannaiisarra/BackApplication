@@ -1,0 +1,251 @@
+
+
+<section class="content">
+  <div class="row">
+    <div class="col-12">
+      <div class="box pull-up">
+        <div class="box-body bg-img bg-primary-light">
+          <div class="d-lg-flex align-items-center justify-content-between">
+            <div class="d-lg-flex align-items-center mb-30 mb-xl-0 w-p100">
+              <img
+                src="https://eduadmin-template.multipurposethemes.com/bs4/images/svg-icon/color-svg/custom-14.svg"
+                class="img-fluid max-w-250"
+                alt=""
+              />
+              <div class="ml-30">
+                <h2 class="mb-10">
+                  Take Advance Courses to Achive Your Goal !
+                </h2>
+                <p class="mb-0 text-fade font-size-18">
+               
+                  <br />
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row fx-element-overlay">
+  
+      <div class="box no-shadow mb-0 bg-transparent">
+        <div class="box-header no-border px-1">
+          <div
+         style="text-align:right">
+        
+          <button class="waves-effect waves-light btn btn-social btn-flickr mb-9" (click)="generateFormUser()" data-target="#myModal"  data-toggle="modal">
+            <i class="ti-plus"></i>Add new training
+            </button>
+        
+        </div>
+        
+        </div> 
+      </div>
+
+
+    <br /><br /><br />
+    <br />
+  
+    <div style="height:100%"
+      class="col-3 " 
+      *ngFor="let item of formations; let i = index"
+    >
+      <div class="card"   >
+        <div class="fx-card-item"  >
+          <div class="fx-card-avatar fx-overlay-1"  style="height:80%">
+            <img src="{{ base_picture + item.photo }}" alt="user"  style="width:100%"/>
+            <div class="fx-overlay">
+              <ul class="fx-info">
+                <li>
+                  <a
+                    class="btn btn-danger no-border"
+                    [routerLink]="['/home/detailformation', item.id]"
+                    href="javascript:void(0);"
+                    >View More</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body" >
+          <div class="cour-stac d-flex align-items-center">
+            
+            <!-- <p>Start Date {{ item.date_deDebut | date: "yyyy-MM-dd" }}</p>
+            <p class="lt-sp">|</p>
+            <p> {{ item.id  }}</p> -->
+          </div>
+     <h5>   <b
+      class="card-title justify-content-between d-flex align-items-center"
+    >
+    {{ item.titre }}
+  </b>
+</h5>
+       
+          <p class="card-text">{{ item.description }}</p>
+          <p>Start Date {{ item.date_deDebut | date: "yyyy-MM-dd" }}</p>
+        </div>
+
+        <div class="card-footer justify-content-between d-flex">
+          <span class="text-muted">
+            
+            <img
+              class="avatar avatar-14 rounded-circle bg-warning-light"
+              src="{{ base_picture + item?.demandes[0].users.photo }}"
+              alt="..."
+            />
+        
+          </span>
+          <br />
+          <span>
+            <a
+              href="javascript:void(0)"
+              (click)="removeFormation(item.id)"
+              class="text-danger"
+              data-original-title="Delete"
+              data-toggle="tooltip"
+            >
+              <i class="ti-trash"></i>
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- /.content -->
+
+<!-- Popup Model Plase Here -->
+<div
+
+  id="myModal"
+  class="modal fade in"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="myModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" class="close" id="myModalLabel">Add new Training</h4>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-hidden="true"
+          id="closeModalAjout"
+        > x</button>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" name="form" [formGroup]="formFormation">
+          <div class="form-group">
+            <label class="col-md-12">Title</label>
+            <div class="col-md-12">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Title"
+                name="titre"
+                formControlName="titre"
+              />
+              <small style="color:red;" *ngIf="!formFormation.controls['titre'].valid && formFormation.controls['titre'].touched  || (utilisateurSubmitted  && !formFormation.controls['titre'].valid)">
+                The titre is a required field
+                   
+                  </small >
+            </div>
+            <label class="col-md-12">Description</label>
+            <div class="col-md-12">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Description"
+                name="titre"
+                formControlName="description"
+              />
+              <small style="color:red;" *ngIf="!formFormation.controls['description'].valid && formFormation.controls['description'].touched  || (utilisateurSubmitted  && !formFormation.controls['description'].valid)">
+                The description is a required field
+                   
+                  </small >
+            </div>
+
+            <label class="col-md-12">Photo</label>
+            <div class="col-md-12">
+              <input
+                class="form-control"
+                type="file"
+                id="formFile"
+                formControlName="photo"
+                type="file"
+                multiple
+                (change)="handleFileInput($event)"
+              />
+            </div>
+            <label class="col-md-12">start date</label>
+            <div class="col-md-12">
+              <input
+                class="form-control"
+                type="date"
+                formControlName="date_deDebut"
+              />
+              <small style="color:red;" *ngIf="!formFormation.controls['date_deDebut'].valid && formFormation.controls['date_deDebut'].touched  || (utilisateurSubmitted  && !formFormation.controls['date_deDebut'].valid)">
+                The start date is a required field
+                   
+                  </small >
+            </div>
+            <label class="col-md-12">end date</label>
+            <div class="col-md-12">
+              <input
+                class="form-control"
+                type="date"
+                formControlName="date_defin"
+              />
+              <small style="color:red;" *ngIf="!formFormation.controls['date_defin'].valid && formFormation.controls['date_defin'].touched || (utilisateurSubmitted  && !formFormation.controls['date_defin'].valid)">
+                The end date is a required field
+                   
+                  </small >
+            </div>
+          </div>
+          <label class="col-md-12">All Trainer</label>
+          <div class="col-md-12">
+            <div  >
+              <div >
+
+            
+             
+              <select class="form-control" formControlName="users_id" >
+
+                <option  *ngFor="let item of users" [value]="item.id" > {{item.username}} </option>
+          
+             
+              
+              
+              </select>
+              <small style="color:red;" *ngIf="!formFormation.controls['users_id'].valid && formFormation.controls['users_id'].touched || (utilisateurSubmitted  && !formFormation.controls['users_id'].valid) ">
+                The All Trainer is a required field
+                   
+                  </small >
+            
+          </div>
+        </div>
+        </div>
+        <br><br>
+          <div    class="btn-text-left">
+         
+          </div>
+          <div  class="btn-text-right">
+            <button type="button" (click)="onSubmit()" class="btn btn-primary"     >
+              Add
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /Popup Model Plase Here -->

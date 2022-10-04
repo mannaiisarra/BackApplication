@@ -1,0 +1,366 @@
+<!-- Content Header (Page header) -->
+<div class="content-header">
+  <div class="d-flex align-items-center">
+    <div class="mr-auto">
+      <h2 class="page-title"></h2>
+
+      <div class="d-inline-block align-items-center">
+        <nav>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="#">
+                <h4><i class="ti-view-list-alt"></i></h4
+              ></a>
+            </li>
+
+            <li class="breadcrumb-item active" aria-current="page">
+              <h4>Manage trainers and learners</h4>
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="content">
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-6"></div>
+    <div class="col-3">
+      <div class="box-body">
+        <div class="clearfix">
+          <button
+            type="button"
+            data-target="#myModal1"
+            class="waves-effect waves-light btn-block btn btn-primary"
+            data-toggle="modal"
+            (click)="generateFormUser()"
+          >
+            <i class="fa fa-plus mr-15"></i> Add Learners | trainers
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="row">
+      <div class="col-12">
+        <div class="box">
+          <div class="box-body">
+            <div class="table-responsive">
+              <table
+                id="productorder"
+                class="table table-hover no-wrap product-order"
+                data-page-size=""
+              >
+                <thead class="bg-success">
+                  <tr>
+                    <td></td>
+                    <td>Username</td>
+                    <td>Email</td>
+                    <td>Phone</td>
+                    <td>Adress</td>
+                    <td>Image</td>
+                    <td>Role</td>
+
+                    <td>Actions</td>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let item of users; let i = index">
+                  <tr>
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ item.username }}</td>
+                    <td>{{ item.email }}</td>
+                    <td>{{ item.phone }}</td>
+                    <td>{{ item.adress }}</td>
+                    <td>
+                      <img
+                        src="{{ base_picture + item.photo }}"
+                        alt="product"
+                        width="80"
+                        class="avatar avatar-lg rounded10"
+                      />
+                    </td>
+
+                    <!-- *ngIf="showFORMATEUR"  -->
+
+                    <td *ngFor="let rol of item.roles">{{ rol.name }}</td>
+                    <td>
+                      <a
+                        href="javascript:void(0)"
+                        data-toggle="modal"
+                    (click)="getbyid(item.id)"
+                        data-target="#myModal"
+                        class="text-info mr-10"
+                        data-original-title="Edit"
+                      >
+                        <i class="ti-marker-alt"></i>
+                      </a>
+                      <a
+                        href="javascript:void(0)"
+                        (click)="removeUser(item.id)"
+                        class="text-danger"
+                        data-original-title="Delete"
+                        data-toggle="tooltip"
+                      >
+                        <i class="ti-trash"></i>
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div
+  id="myModal"
+  class="modal fade in"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="myModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Edit Info</h4>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-hidden="true"
+        >
+          
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" [formGroup]="formUser">
+          <div class="form-group">
+            <label class="col-md-12">Name</label>
+            <div class="col-md-12">
+              <input
+                type="text"
+                class="form-control"
+                placeholder=""
+                formControlName="username"
+              />
+            </div>
+            <label class="col-md-12">Email</label>
+            <div class="col-md-12">
+              <input
+                type="email"
+                class="form-control"
+                placeholder=""
+                formControlName="email"
+              />
+            </div>
+            <label class="col-md-12">Phone</label>
+            <div class="col-md-12">
+              <input
+                type="tel"
+                class="form-control"
+                placeholder=""
+                formControlName="phone"
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-12">Address</label>
+            <div class="col-md-12">
+              <textarea
+                class="form-control"
+                placeholder=""
+                formControlName="adress"
+              ></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-success"
+              data-dismiss="modal"
+              (click)="EditUsers()"
+            >
+              Add
+            </button>
+            <button
+              type="button"
+              class="btn btn-default float-right"
+              data-dismiss="modal"
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+
+<div
+  id="myModal1"
+  class="modal fade in"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="myModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Add New User</h4>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-hidden="true"
+          id="closeModalAjoutVideo"
+        >
+          
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" [formGroup]="formUserone">
+          <div class="form-group">
+            <label class="col-md-12">username</label>
+            <div class="col-md-12">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="username"
+                formControlName="username"
+              
+              
+          
+              />
+              <small style="color:red;" *ngIf="(!formUserone.controls['username'].valid && formUserone.controls['username'].touched) || (utilisateurSubmitted  && !formUserone.controls['username'].valid)">
+            
+             Username min length is 4
+                  
+               </small >
+            
+            </div>
+                      
+            <label class="col-md-12">Email</label>
+            <div class="col-md-12">
+              <input
+                type="email"
+                class="form-control"
+                placeholder="email"
+                formControlName="email"
+              />
+              <small style="color:red;" *ngIf="!formUserone.controls['email'].valid && formUserone.controls['email'].touched || (utilisateurSubmitted  && !formUserone.controls['email'].valid)">
+                The email is a required field
+                     
+                  </small >
+               
+            </div>
+            <label class="col-md-12"  for="phone">Phone</label>
+            <div class="col-md-12">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="phone"
+                formControlName="phone"
+              
+              />
+              <small style="color:red;"  *ngIf="!formUserone.controls['phone'].valid && formUserone.controls['phone'].touched || (utilisateurSubmitted  && !formUserone.controls['phone'].valid)">
+                The phone is a required field
+                     
+                  </small >
+                 
+
+
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-12">Address</label>
+            <div class="col-md-12">
+              <input
+                class="form-control"
+                placeholder="address"
+                formControlName="adress"
+              />
+              <small style="color:red;" *ngIf="!formUserone.controls['adress'].valid && formUserone.controls['adress'].touched || (utilisateurSubmitted  && !formUserone.controls['adress'].valid)">
+                The adress is a required field
+                     
+                  </small >
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-12">Password</label>
+            <div class="col-md-12">
+              <input
+              type="password"
+                class="form-control"
+                placeholder="password"
+                formControlName="password"
+              />
+            </div>
+            <small style="color:red;" *ngIf="!formUserone.controls['password'].valid && formUserone.controls['password'].touched || (utilisateurSubmitted  && !formUserone.controls['password'].valid)">
+              The password is a required field
+                   
+                </small >
+          </div>
+          <div class="form-group">
+            <label class="col-md-12">photo</label>
+            <div class="col-md-12">
+              <input
+                class="form-control"
+                type="file"
+                id="formFile"
+                type="file"
+                formControlName="photo"
+                multiple
+                (change)="handleFileInput($event)"
+              />
+              <small style="color:red;" *ngIf="!formUserone.controls['photo'].valid && formUserone.controls['photo'].touched ">
+                The photo is a required field
+                     
+                  </small >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-12">Role</label>
+            <div class="col-md-12">
+              <select class="form-control" formControlName="role">
+                <option *ngFor="let item of roles" [value]="item.id">
+                  {{ item.name }}
+                </option>
+              </select>
+              <small style="color:red;" *ngIf="(!formUserone.controls['role'].valid && formUserone.controls['role'].touched) || (utilisateurSubmitted  && !formUserone.controls['role'].valid)">
+                The Role is a required field
+                     
+                  </small >
+            </div>
+          </div>
+          <div class="modal-footer">
+          
+           
+          </div>
+          <div    class="btn-text-left">
+         
+          </div>
+          <div  class="btn-text-right">
+            <button  type="button"
+            class="btn btn-success"
+            (click)="onSubmit()"    >
+              Add
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>

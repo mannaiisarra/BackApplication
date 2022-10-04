@@ -1,0 +1,260 @@
+
+
+<div class="content-header">
+    <div class="d-flex align-items-center">
+      <div class="mr-auto">
+        <h2 class="page-title"></h2>
+  
+        <div class="d-inline-block align-items-center">
+          <nav>
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="#">
+                  <h4><i class="ti-view-list-alt"></i></h4
+                ></a>
+              </li>
+  
+              <li class="breadcrumb-item active" aria-current="page">
+                <h4>Admin List</h4>
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+	  <!-- Main content -->
+	  <section class="content">
+		  <div class="row" >
+			  <div class="col-lg-7 ">
+				  <div class="box">
+					 
+				
+					  <div *ngFor="let item of users; let i=index">
+						<div class="card">
+						<div class="media-list media-list-divided media-list-hover">
+							
+	
+							<div class="media align-items-center">
+	
+							  <span class="badge badge-dot badge-success"></span>	
+	
+							  <a class="avatar avatar-lg" href="#">
+								<img src="{{ base_picture+item.photo }}"  width="50" height="50">
+							  </a>
+	
+							  <div class="media-body">
+								<p>
+								  <a href="#"><strong>{{item.username}}</strong></a>
+								
+								</p>
+								<div *ngFor="let rol of item.roles">
+									{{rol.name}}
+								
+
+								</div>
+	
+								
+							  </div>
+	
+							  <div class="media-right gap-items">
+								
+
+								<a       (click)="getbyid(item.id)" data-toggle="modal" data-target="#myModal11"    class="text-info mr-10">	<i class="ti-marker-alt"></i></a>
+
+						
+								<a href="javascript:void(0)" (click)="removeOrder(item.id)" class="text-danger" data-original-title="Delete" data-toggle="tooltip">
+									<i class="ti-trash"></i>
+								</a>
+							  </div>
+							</div>
+	
+							
+	
+						  </div>
+
+					
+
+						</div>
+					
+
+					  </div>
+
+				  </div>
+			  </div>
+			  <div class="col-lg-1 "></div>
+			  <div class="col-lg-4 ">
+				  <div class="box no-shadow">
+					  <div class="box-body">
+
+						<a href="javascript:void(0)" data-toggle="modal" data-target="#myModal"    (click)="generateFormUser()" class="btn btn-success mt-10 d-block text-center">+ Add New Admin</a>
+					</div>
+				  </div>
+			  </div>				
+		  </div>
+	  </section>
+	  <!-- /.content -->
+
+<!-- /.content-wrapper -->
+  
+<!-- Popup Model Plase Here -->
+<div id="myModal11" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+	<div class="modal-dialog">
+		
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h4 class="modal-title" id="myModalLabel">Edit Admin</h4>
+		  <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+		</div>
+		<div class="modal-body">
+		  <form class="form-horizontal"  name="form" [formGroup]="formUser">
+  
+			<div class="form-group">
+			  <label class="col-md-12">Name</label>
+			  <div class="col-md-12">
+				<input type="text" class="form-control" placeholder="username"  name="username"
+				formControlName="username">
+
+				<small style="color:red;" *ngIf="!formCategory.controls['username'].valid && formCategory.controls['username'].touched">
+					The username is a required field
+						 
+					  </small >
+			  </div>
+			  <label class="col-md-12">Email</label>
+			  <div class="col-md-12">
+				<input type="email" class="form-control" placeholder="Email" name="email" name="email"
+				formControlName="email">
+				<small style="color:red;" *ngIf="!formCategory.controls['email'].valid && formCategory.controls['email'].touched">
+					The email is a required field
+						 
+					  </small >
+			  </div>
+			  <label class="col-md-12">Phone</label>
+			  <div class="col-md-12">
+				<input type="tel" class="form-control" placeholder="Phone" name="phone" name="phone"
+				formControlName="phone" > 
+				<small style="color:red;" *ngIf="!formCategory.controls['phone'].valid && formCategory.controls['phone'].touched">
+					The phone is a required field
+						 
+					  </small >
+			  </div>
+			
+			
+			  
+			  
+			</div>
+			<div class="form-group">
+			  <label class="col-md-12">Address</label>
+			  <div class="col-md-12">
+				<textarea class="form-control" placeholder=""  name="adress"  formControlName="adress"
+				required></textarea>
+
+				<small style="color:red;" *ngIf="!formCategory.controls['adress'].valid && formCategory.controls['adress'].touched">
+					The adress is a required field
+						 
+					  </small >
+			  </div>
+			</div>
+			<div class="modal-footer">
+			<button type="button"   (click)="EditUsers()" class="btn btn-success" data-dismiss="modal">Edit</button>
+			<button type="button" class="btn btn-default float-right" data-dismiss="modal">Cancel</button>
+		  </div>
+		  </form>
+		</div>
+	   
+	  </div>
+	  <!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+  </div>
+
+  <div id="myModal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+	<div class="modal-dialog">
+		
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h4 class="modal-title" id="myModalLabel">Add Admin</h4>
+		  <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+		</div>
+		<div class="modal-body">
+		  <form class="form-horizontal"  name="form" [formGroup]="formCategory"> 
+  
+			<div class="form-group">
+			  <label class="col-md-12">Name</label>
+			  <div class="col-md-12">
+				<input type="text" class="form-control" placeholder="username"  name="username"
+				formControlName="username">
+
+				<small style="color:red;" *ngIf="!formCategory.controls['username'].valid && formCategory.controls['username'].touched || (utilisateurSubmitted  && !formCategory.controls['username'].valid)">
+					The username is a required field
+						 
+					  </small >
+			  </div>
+			  <label class="col-md-12">Email</label>
+			  <div class="col-md-12">
+				<input type="email" class="form-control" placeholder="Email" name="email" name="email"
+				formControlName="email">
+				<small style="color:red;" *ngIf="!formCategory.controls['email'].valid && formCategory.controls['email'].touched || (utilisateurSubmitted  && !formCategory.controls['email'].valid)">
+					The email is a required field
+						 
+					  </small >
+			  </div>
+			  <label class="col-md-12">Phone</label>
+			  <div class="col-md-12">
+				<input type="tel" class="form-control" placeholder="Phone" name="phone" name="phone"
+				formControlName="phone" > 
+				<small style="color:red;" *ngIf="!formCategory.controls['phone'].valid && formCategory.controls['phone'].touched || (utilisateurSubmitted  && !formCategory.controls['phone'].valid)">
+					The phone is a required field
+						 
+					  </small >
+			  </div>
+			  <label class="col-md-12">Password</label>
+			  <div class="col-md-12">
+				<input type="password" class="form-control" placeholder=""  name="password" name="password"
+				formControlName="password"> 
+
+				<small style="color:red;" *ngIf="!formCategory.controls['password'].valid && formCategory.controls['password'].touched || (utilisateurSubmitted  && !formCategory.controls['password'].valid)">
+					The password is a required field
+						 
+					  </small >
+			  </div>
+			  <label class="col-md-12">Photo</label>
+			  <div class="col-md-12">
+			<input class="form-control" formControlName="photo" type="file" id="formFile" type="file"   multiple (change)="handleFileInput($event)" />
+  		
+
+			  </div>
+			  
+			  
+			</div>
+			<div class="form-group">
+			  <label class="col-md-12">Address</label>
+			  <div class="col-md-12">
+				<textarea class="form-control" placeholder=""  name="adress"  formControlName="adress"
+				required></textarea>
+
+				<small style="color:red;" *ngIf="!formCategory.controls['adress'].valid && formCategory.controls['adress'].touched || (utilisateurSubmitted  && !formCategory.controls['adress'].valid)">
+					The adress is a required field
+						 
+					  </small >
+			  </div>
+			</div>
+			<div class="modal-footer">
+			
+			
+		  </div>
+		  <div    class="btn-text-left">
+		</div>
+		<div  class="btn-text-right">
+		  <button type="button" (click)="onSubmit()" class="btn btn-success" >Add</button>
+		</div>
+		  </form>
+		</div>
+	   
+	  </div>
+	  <!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+  </div>

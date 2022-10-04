@@ -1,0 +1,60 @@
+
+<br><br>
+<section class="content">
+    <div class="row">
+<div  class="col-1"  style="      
+align-items:center;">
+      
+
+</div>
+
+<div  class="col-10">
+
+
+<div     style="      
+align-items:center;"
+>
+<div class="clearfix">
+    <!-- <button
+      type="button"
+      class="btn btn-primary"
+      data-toggle="modal"
+      data-target="#modal-center"
+    >
+      <i class="fa fa-plus mr-9"></i>
+    </button> -->
+
+    <div class="dropdown">
+      <button
+        class="btn btn-rounded btn-primary dropdown-toggle"
+        type="button"
+        data-toggle="dropdown"
+      >
+        Tout Les formations
+      </button>
+      <div class="dropdown-menu" >
+        <a 
+          class="dropdown-item flexbox"   
+          *ngFor="let item of formationsBefore; let i = index"
+
+        
+        >
+          <span >{{item.titre}}</span>
+        </a>
+
+       
+        
+
+
+      
+      </div>
+    </div>
+  </div>
+
+    <full-calendar   [options]="calendarOptions"></full-calendar>
+</div>
+   
+</div>
+
+</div>
+

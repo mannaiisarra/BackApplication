@@ -1,0 +1,163 @@
+<section class="sidebar position-relative">	
+    <div class="multinav">
+    <div class="multinav-scroll" style="height: 100%;">	
+        <!-- sidebar menu-->
+        <ul class="sidebar-menu" data-widget="tree">
+         
+
+          <li class="header" *ngIf="showSuprAdminBoard">MANAGE USERS </li>
+          <li class="" *ngIf="showSuprAdminBoard">
+            <a [routerLink]="['/home/listclient']" >
+              <i class="icon-User"><span class="path1"></span><span class="path2"></span></i>       
+                     <span>Manage customers</span>
+              <span class="pull-right-container">
+              </span>
+            </a>
+         
+          </li>
+        
+
+           <li class="" *ngIf="showADMINBoard">
+            <a [routerLink]="['/home/formateur_Apprenant']" >
+              <i class="fa fa-group" style="font-size:16px"><span class="path1"></span><span class="path2"></span></i>       
+                     <span>Manage trainer/learner</span>
+              <span class="pull-right-container">
+              </span>
+            </a>
+
+            
+          </li>
+
+
+          <li class=""  *ngIf="showADMINBoard">
+            <a [routerLink]="['/home/list']" >
+              <i class="fa fa-mortar-board" style="font-size:17px"><span class="path1"></span><span class="path2"></span></i>       
+                     <span>List of learner</span>
+              <span class="pull-right-container">
+              </span>
+            </a>
+            
+          </li>
+          <li class="" *ngIf="showADMINBoard">
+            <a [routerLink]="['/home/listclient']" >
+              <i class="fa fa-user-plus" style="font-size:16px"><span class="path1"></span><span class="path2"></span></i>       
+                     <span>New customer</span>
+              <span class="pull-right-container">
+              </span>
+            </a>
+
+            
+          </li>
+          <li class="header">MANAGE ACCOUNT </li>
+
+          <li class="" >
+            <a [routerLink]="['/home/profile']" >
+              <i class="icon-Write"><span class="path1"></span><span class="path2"></span></i>       
+                     <span>Profile</span>
+              <span class="pull-right-container">
+              </span>
+            </a>
+            
+          </li>
+       
+          <li class="" >
+            <a [routerLink]="['/home/chatt']" >
+              <i class='far fa-comment-dots' style='font-size:20px'><span class="path1"></span><span class="path2"></span></i>       
+                     <span>Chat Room </span>
+              <span class="pull-right-container">
+              </span>
+            </a>
+            
+          </li>
+          <li class="header"  *ngIf="showADMINBoard "   >MANAGE TRAINING </li>
+          <li class="header"  *ngIf="showFormateurBoard"  >MANAGE TRAINING </li>
+          <li class=""  *ngIf="showADMINBoard">
+            <a [routerLink]="['/home/formation']" >
+              <i span class="icon-Layout-grid"><span class="path1"></span><span class="path2"></span></i>
+
+              <span>Training </span>
+              <span class="pull-right-container">
+              </span>
+            </a>
+         
+          </li>
+          <li class=""  *ngIf="showFormateurBoard">
+            <a [routerLink]="['/home/formateur-formation']" >
+              <i span class="icon-Layout-grid"><span class="path1"></span><span class="path2"></span></i>
+
+              <span>My training </span>
+              <span class="pull-right-container">
+              </span>
+            </a>
+         
+          </li>
+          <li class=""  *ngIf="showADMINBoard">
+            <a [routerLink]="['/home/listOfRequest']" >
+              <i class="icon-File"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+              
+              <span>List Of Request </span>
+              <span class="pull-right-container">
+              </span>
+            </a>
+         
+          </li>
+
+          <li class=""  *ngIf="showADMINBoard">
+            <a [routerLink]="['/home/archive']" >
+              <i class="fa fa-archive" style="font-size:16px"><span class="path1"></span><span class="path2"></span></i>
+              <span>Archive </span>
+              <span class="pull-right-container">
+              </span>
+            </a>
+         
+          </li>
+          <li class=""  *ngIf="showFormateurBoard">
+            <a [routerLink]="['/home/archive']" >
+              <i class="fa fa-archive" style="font-size:16px"><span class="path1"></span><span class="path2"></span></i>
+              <span>Archive </span>
+              <span class="pull-right-container">
+              </span>
+            </a>
+         
+          </li>
+          <li class=""  *ngIf="showADMINBoard">
+            <a [routerLink]="['/home/test']" >
+              <i class="fa fa-calendar" style="font-size:16px"><span class="path1"></span><span class="path2"></span></i>
+              <span>Calendar </span>
+              <span class="pull-right-container">
+              </span>
+            </a>
+         
+          </li>
+          <li class=""  *ngIf="showFormateurBoard">
+            <a [routerLink]="['/home/calendrier']" >
+              <i class="fa fa-calendar" style="font-size:16px"><span class="path1"></span><span class="path2"></span></i>
+              <span>Calendar </span>
+              <span class="pull-right-container">
+              </span>
+            </a>
+         
+          </li>
+       
+          <li class=""  *ngIf="showFormateurBoard">
+            <a [routerLink]="['/home/List-Result']" >
+              <i class="icon-File"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+              
+              <span>Result Of Quiz </span>
+              <span class="pull-right-container">
+              </span>
+            </a>
+         
+          </li>
+        
+        
+        
+         
+         
+  		
+        
+          
+        </ul>
+    </div>
+  </div>
+</section>

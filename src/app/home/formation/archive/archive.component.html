@@ -1,0 +1,93 @@
+<section class="content">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="d-flex align-items-center">
+            <div class="mr-auto">
+                
+           <h2 class="page-title"></h2>
+
+                <div class="d-inline-block align-items-center">
+                    <nav>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#"> <h4>   <i class="ti-view-list-alt"></i> </h4></a></li>
+                     
+                            <li class="breadcrumb-item active" aria-current="page"><h4> List of training</h4></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br /><br /><br />
+    <br />
+<div class="row fx-element-overlay">
+ 
+
+ 
+
+  <div
+    class="col-md-6 col-lg-3"
+    *ngFor="let item of formations; let i=index">
+  
+    <div class="card" width="100" height="100">
+      <div class="fx-card-item">
+        <div class="fx-card-avatar fx-overlay-1" width="50" height="50">
+            <img src="{{ base_picture + item.photo }}" alt="user" />
+          <div class="fx-overlay">
+            <ul class="fx-info">
+              <li>
+                <a
+                  class="btn btn-danger no-border"
+                  [routerLink]="['/home/detailformation', item.id]"
+                  href="javascript:void(0a);"
+                  >View More</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="cour-stac d-flex align-items-center">
+            <p>Start Date {{ item.date_defin | date: "yyyy-MM-dd" }}</p>
+          <p class="lt-sp">|</p>
+          <p> {{ item.id}}</p>
+        </div>
+        <br />
+        <h4
+          class="card-title justify-content-between d-flex align-items-center"
+        ></h4>
+        <p class="card-text">{{ item.description }}</p>
+      </div>
+
+      <div class="card-footer justify-content-between d-flex">
+        <span class="text-muted">
+            <!-- <img
+            class="avatar avatar-14 rounded-circle bg-warning-light"
+            src="{{ base_picture + item?.demandes[0].users?.photo }}"
+            alt="..."
+          /> -->
+        </span>
+        <br />
+        <span>
+            <a
+              href="javascript:void(0)"
+              (click)="removeFormation(item.id)"
+              class="text-danger"
+              data-original-title="Delete"
+              data-toggle="tooltip"
+            >
+              <i class="ti-trash"></i>
+            </a>
+          </span>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- /.content -->
+
+<!-- Popup Model Plase Here -->
+
+<!-- /Popup Model Plase Here -->

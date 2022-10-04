@@ -1,0 +1,1097 @@
+<section class="content">
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-7"></div>
+    <div class="col-2">
+      <div class="box-body">
+        <div class="clearfix">
+          <!-- <button
+            type="button"
+            class="btn btn-primary"
+            data-toggle="modal"
+            data-target="#modal-center"
+          >
+            <i class="fa fa-plus mr-9"></i>
+          </button> -->
+
+          <div class="dropdown">
+            <button
+              class="btn btn-rounded btn-primary dropdown-toggle"
+              type="button"
+              data-toggle="dropdown"
+            >
+            Create
+            </button>
+            <div class="dropdown-menu">
+              <a
+                class="dropdown-item flexbox"
+                href="#"
+                data-toggle="modal"
+                data-target="#modal-center6"
+                (click)="generateFormCours()"
+              >
+                <span>Cours</span>
+              </a>
+
+              <a
+                class="dropdown-item flexbox"
+                href="#"
+                data-toggle="modal"
+                data-target="#modal-center2"
+                (click)="generateFormQuiz()"
+              >
+                <span>Quiz</span>
+              </a>
+              <a
+              class="dropdown-item flexbox"
+              href="#"
+              data-toggle="modal"
+              data-target="#modal-center5"
+              (click)="generateFormVideo()"
+            >
+              <span>Video</span>
+            </a>
+
+
+              <div class="dropdown-divider"></div>
+              <a
+                class="dropdown-item flexbox"
+                data-toggle="modal"
+                data-target="#modal-center"
+                (click)="generateFormStep()"
+              >
+                <span>Etape</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br>
+
+  <div class="row">
+    <div class="col-12">
+    
+      <!-- Default box -->
+      <div class="card" style="background-color: rgb(255, 255, 255)">
+        <div class="box-header with-border">
+          <div class="box-header with-border" >
+            
+            <h4 class="box-title">
+              <span class="glyphicon glyphicon-folder-open" ></span> -
+              {{ theme.theme_titre }}<small class="subtitle"></small>
+            </h4>
+            
+          
+          </div>
+          <div *ngFor="let item of etape">
+
+            <div class="box-body">
+              <mat-accordion>
+                <mat-expansion-panel
+                  (opened)="panelOpenState = true"
+                  (closed)="panelOpenState = false"
+                  style="background-color: rgb(240,240,240) "
+                >
+                  <div>
+                    <div class="row">
+                      <div class="col-4" *ngFor="let cr of item.videos" width="70" >
+                        <div class="box mb-15 pull-up">
+                          <div class="box-body">
+                            <ul class="box-controls pull-right">
+                              <li class="dropdown">
+                                <a data-toggle="dropdown" href="#"
+                                  ><i class="ti-more-alt rotate-90"></i
+                                ></a>
+                                <div
+                                  class="dropdown-menu dropdown-menu-right"
+                                >
+                                  <a class="dropdown-item"   (click)="removeVideo(cr.id)">
+                                    <i
+                                      class="fa fa-trash"
+                                      aria-hidden="true"
+                                    ></i>
+                                    Delate</a
+                                  >
+                                  <a
+                                    class="dropdown-item"
+                                  (click)="getVideoById(cr.id)"
+                                    data-toggle="modal"
+                                    data-target="#modal-center77"
+                                    ><i class="fa fa-edit"></i> Edit</a
+                                  >
+
+                                </div>
+                         
+
+                              </li>
+                              <li><a class="btn-slide" href="#"></a></li>
+                              <li>
+                                <a class="btn-fullscreen" href="#"></a>
+                              </li>
+                            </ul>
+                            <div
+                              class="d-flex align-items-center justify-content-between"
+                            >
+                              <div class="d-flex align-items-center">
+                                <div
+                                  class="mr-15 bg-primary-light h-50 w-50 l-h-60 rounded text-center"
+                                >
+                                  <i
+                                    class="fa fa-play-circle"
+                                    style="font-size: 24px"
+                                  ></i>
+                                </div>
+                                <div
+                                  class="d-flex flex-column font-weight-500"
+                                >
+                                  <a
+                                    href="#"
+                                    class="text-dark hover-primary mb-1 font-size-16"
+                                    >{{ cr.photo }}</a
+                                  >
+                               
+
+                                </div>
+                              <span class="badge badge-pill badge-info " style="background-color: #c7cdcfbd;"> Taille :2Go</span>
+
+                              </div>
+
+                            </div>
+
+                            <!-- <div class="d-flex align-items-center justify-content-between mt-5">
+                          <div class="">
+                           
+                          </div>
+                          <div>
+                            <div>{{ cr.date }}</div>
+                          </div>
+                        </div> -->
+
+                          </div>
+
+                        </div>
+                      </div>
+
+                      <div class="col-4" *ngFor="let cr of item.cours">
+                        <div class="box mb-15 pull-up">
+                          <div class="box-body">
+                            <ul class="box-controls pull-right">
+                              <li class="dropdown">
+                                <a data-toggle="dropdown" href="#"
+                                  ><i class="ti-more-alt rotate-90"></i
+                                ></a>
+                                <div
+                                  class="dropdown-menu dropdown-menu-right"
+                                >
+                                  <a class="dropdown-item"  (click)="removeCours(cr.id)">
+                                    <i
+                                      class="fa fa-trash"
+                                      aria-hidden="true"
+                                    ></i>
+                                    Delate</a
+                                  >
+                                  <a
+                                    class="dropdown-item"
+
+                                    (click)="getCoursById( cr.id)"
+
+                                    data-toggle="modal"
+                                    data-target="#modal-center7"
+                                    ><i class="fa fa-edit"></i> Edit</a
+                                  >
+                                </div>
+                              </li>
+                              <li>
+                                <a class="btn-slide" href="#"></a>
+                              </li>
+                              <li>
+                                <a class="btn-fullscreen" href="#"></a>
+                              </li>
+                            </ul>
+                            <div
+                              class="d-flex align-items-center justify-content-between"
+                            >
+                              <div class="d-flex align-items-center">
+                                <div
+                                  class="mr-15 bg-warning-light h-50 w-50 l-h-60 rounded text-center"
+                                >
+                                  <span
+                                    class="icon-Book-open font-size-24"
+                                    ><span class="path1"></span
+                                    ><span class="path2"></span
+                                  ></span>
+                                </div>
+                                <div
+                                  class="d-flex flex-column font-weight-500"
+                                >
+                                  <a
+                                    href="#"
+                                    class="text-dark hover-primary mb-1 font-size-16"
+                                    >{{ cr.photo }}</a
+                                  >
+                                  <span class="text-fade">{{
+                                    cr.date
+                                  }}</span>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- <div class="d-flex align-items-center justify-content-between mt-5">
+                                <div class="">
+                                 
+                                </div>
+                                <div>
+                                  <div>{{ cr.date }}</div>
+                                </div>
+                              </div> -->
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-4" *ngFor="let cr of item.quizzes">
+                        <div class="box mb-15 pull-up">
+                          <div class="box-body">
+                            <ul class="box-controls pull-right">
+                              <li class="dropdown">
+                                <a data-toggle="dropdown" href="#"
+                                  ><i class="ti-more-alt rotate-90"></i
+                                ></a>
+                                <div
+                                  class="dropdown-menu dropdown-menu-right"
+                                >
+                                  <a class="dropdown-item" (click)="removeQuiz(cr.id)">
+                                    <i
+                                      class="fa fa-trash"
+                                      aria-hidden="true"
+                                    ></i>
+                                    Delate</a
+                                  >
+                                  <a
+                                    class="dropdown-item"
+                                   
+                                    (click)="getQuizById(cr.id)"
+                                    data-toggle="modal"
+                                    data-target="#modal-center44"
+                                    ><i class="fa fa-edit"></i> Edit</a
+                                  >
+                                </div>
+                              </li>
+                              <li>
+                                <a class="btn-slide" href="#"></a>
+                              </li>
+                              <li>
+                                <a class="btn-fullscreen" href="#"></a>
+                              </li>
+                            </ul>
+                            <div
+                              class="d-flex align-items-center justify-content-between"
+                            >
+                              <div class="d-flex align-items-center">
+                                <div
+                                  class="mr-15 bg-danger-light h-50 w-50 l-h-60 rounded text-center"
+                                >
+                                  <i
+                                    class="fa fa-clipboard"
+                                    style="font-size: 24px"
+                                  ></i>
+                                </div>
+                                <div
+                                  class="d-flex flex-column font-weight-500"
+                                >
+                                  <a
+                                    [routerLink]="['/home/list', cr.id]"
+                                    class="text-dark hover-primary mb-1 font-size-16"
+                                    >{{ cr.title }}</a
+                                  >
+                                  <span class="text-fade">{{ cr.description }} </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                
+                  </div>
+
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      <i class="ti-bookmark"></i> {{ item.step_titre }}
+                    </mat-panel-title>
+                    <br />
+                    <ul class="">
+                      <li></li>
+                      <li>
+                        <br />
+
+                        <a href="#" (click)="removeEtape(item.idEtape)"
+                          ><mat-icon>delete</mat-icon>
+                        </a>
+                      </li>
+                    </ul>
+                    <br />
+                    <ul class="">
+                      <li></li>
+                    </ul>
+
+                    <mat-panel-description>
+                      <small class="subtitle"> {{ item.etapeType }} </small>
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                </mat-expansion-panel>
+              </mat-accordion>
+            </div>
+          </div>
+        </div>
+
+        <!-- /.box -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal -->
+
+<div class="modal center-modal fade" id="modal-center" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">ADD new Step</h5>
+        <button type="button" class="close" data-dismiss="modal" id="closeModalAjout">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" [formGroup]="formStep">
+          <div class="form-group">
+            <label class="col-md-12">titre </label>
+            <div class="col-md-12">
+              <input
+                type="text"
+                class="form-control"
+                placeholder=""
+                formControlName="step_titre"
+
+              />
+              <small style="color:red;" *ngIf="!formStep.controls['step_titre'].valid && formStep.controls['step_titre'].touched || (utilisateurSubmitted  && !formStep.controls['step_titre'].valid)">
+                The titre is a required field
+                   
+                  </small >
+            </div>
+            <label class="col-md-12">Description </label>
+            <div class="col-md-12">
+              <input
+                type="text"
+                class="form-control"
+                placeholder=""
+                formControlName="description"
+              />
+              <small style="color:red;" *ngIf="!formStep.controls['description'].valid && formStep.controls['description'].touched || (utilisateurSubmitted  && !formStep.controls['description'].valid)">
+                The description is a required field
+                   
+                  </small >
+            </div>
+            <label class="col-md-12">Number of hours</label>
+            <div class="col-md-12">
+              <input
+                type="number"
+                class="form-control"
+                placeholder=""
+                formControlName="nombre_des_heurs"
+              />
+              <small style="color:red;" *ngIf="!formStep.controls['nombre_des_heurs'].valid && formStep.controls['nombre_des_heurs'].touched || (utilisateurSubmitted  && !formStep.controls['nombre_des_heurs'].valid)">
+                The Number of hours is a required field
+                   
+                  </small >
+            </div>
+           
+
+            <!-- <div class="col-md-12">
+              <div class="form-group">
+                <label>Interested in</label>
+                <select class="form-control" formControlName="etapeType">
+                  <option value="QUIZ">QUIZ</option>
+                  <option value="COUR">COURS</option>
+                </select>
+              </div>
+            </div> -->
+            <br />
+            <button
+              type="button"
+              class="btn btn-primary float-right"
+              (click)="addetape()"
+            >
+              Save changes
+            </button>
+            <button
+            type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+
+          <div class="modal-footer modal-footer-uniform"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- /.box -->
+<div class="modal center-modal fade" id="modal-center5" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">ADD new Video</h5>
+        <button type="button" class="close" data-dismiss="modal" id="closeModalAjoutVideo">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" [formGroup]="formVideo">
+          <div class="form-group">
+            <label class="col-md-12">Name</label>
+            <div class="col-md-12">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Name"
+                formControlName="name"
+              />
+              <small style="color:red;" *ngIf="!formVideo.controls['name'].valid && formVideo.controls['name'].touched || (utilisateurSubmitted  && !formVideo.controls['name'].valid)">
+                The Name  is a required field
+                   
+                  </small >
+            </div>
+            <label class="col-md-12">Photo</label>
+            <div class="col-md-12">
+              <input
+                class="form-control"
+                type="file"
+                id="formFile"
+                formControlName="photo"
+                type="file"
+                multiple
+                (change)="handleFileInput($event)"
+              />
+              <small style="color:red;" *ngIf="!formVideo.controls['photo'].valid && formVideo.controls['photo'].touched || (utilisateurSubmitted  && !formVideo.controls['photo'].valid)">
+                The Name  is a required field
+                   
+                  </small >
+            </div>
+           
+            <div class="col-md-12">
+              <div>
+                <div>
+                  <label>Steps : </label>
+                  <select class="form-control" formControlName="etape_id_etape">
+                    <option *ngFor="let item of etape" [value]="item.idEtape">
+                      {{ item.step_titre }}
+                    </option>
+                  </select>
+                  <small style="color:red;" *ngIf="!formVideo.controls['etape_id_etape'].valid && formVideo.controls['etape_id_etape'].touched || (utilisateurSubmitted  && !formVideo.controls['etape_id_etape'].valid)">
+                    The Step  is a required field
+                       
+                      </small >
+                </div>
+              </div>
+            </div>
+
+
+            <!-- <div class="col-md-12">
+              <div class="form-group">
+                <label>Interested in</label>
+                <select class="form-control" formControlName="etapeType">
+                  <option value="QUIZ">QUIZ</option>
+                  <option value="COUR">COURS</option>
+                </select>
+              </div>
+            </div> -->
+            <br />
+            <button
+              type="button"
+              class="btn btn-primary float-right"
+              (click)="addVideoByEtape()"
+            >
+              Save changes
+            </button>
+            <button
+            type="button"
+            class="btn btn-secondary"
+            data-dismiss="modal"
+          >
+            Close
+            </button>
+          </div>
+
+          <div class="modal-footer modal-footer-uniform"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- /.col-->
+
+<div class="modal center-modal fade" id="modal-center44" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Update new Quiz</h5>
+        <button type="button" class="close" data-dismiss="modal" id="closeModalAjouttxst">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" [formGroup]="formQuiz">
+          <div class="form-group">
+            <label class="col-md-12">titre </label>
+            <div class="col-md-12">
+              <input
+                type="text"
+                class="form-control"
+                required
+                name="titre"
+                formControlName="title"
+              />
+
+            </div>
+            <label class="col-md-12">Description </label>
+            <div class="col-md-12">
+              <input
+                type="text"
+                class="form-control"
+                required
+                name="description"
+                formControlName="description"
+              />
+            </div>
+            <form [formGroup]="formEtape">
+              <label class="col-md-12">Etape</label>
+              <div class="col-md-12">
+                <select class="form-control" formControlName="etape_id_etape">
+                  <option *ngFor="let item of etape" [value]="item.idEtape">
+                    {{ item.step_titre }}
+                  </option>
+                </select>
+              </div>
+            </form>
+            <label class="col-md-12">Marck</label>
+            <div class="col-md-12">
+              <input
+                type="number"
+                class="form-control"
+                placeholder=""
+                required
+                name="maxMarks"
+                formControlName="maxMarks"
+              />
+            </div>
+            <label class="col-md-12">Number Of Question</label>
+            <div class="col-md-12">
+              <input
+                type="number"
+                class="form-control"
+                placeholder=""
+                required
+                name="numberOfQuestions"
+                formControlName="numberOfQuestions"
+              />
+            </div>
+
+            <br />
+            <div class="col-md-12">
+              <section class="example-section">
+                <mat-slide-toggle
+                  name="active"
+                  class="example-margin"
+                  formControlName="active"
+                >
+                  Publish Quiz for users!
+                </mat-slide-toggle>
+              </section>
+            </div>
+            <!-- <div class="col-md-12">
+              <div class="form-group">
+                <label>Interested in</label>
+                <select class="form-control" formControlName="etapeType">
+                  <option value="QUIZ">QUIZ</option>
+                  <option value="COUR">COURS</option>
+                </select>
+              </div>
+            </div> -->
+            <br />
+            <button
+            type="button"
+              class="btn btn-primary float-right"
+              (click)="updateQuiz()"
+            >
+              Save changes
+            </button>
+            <button
+            type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+
+<div class="modal center-modal fade" id="modal-center2" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">ADD new Quiz</h5>
+        <button type="button" class="close" data-dismiss="modal" id="closeModalAjoutttt">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" >
+          <div class="form-group">
+            <label class="col-md-12">title </label>
+            <div class="col-md-12">
+              <input
+                type="text"
+                class="form-control"
+                required
+                name="title"
+                
+                placeholder="title"
+                [(ngModel)]="quiz.title"
+                #i="ngModel"
+                required minlength="3"
+              />
+              <small style="color:red;" *ngIf="!i.valid && i.touched">
+                The title  is a required field  
+                  </small >
+            </div>
+            <label class="col-md-12">Description </label>
+            <div class="col-md-12">
+              <input
+                type="text"
+                class="form-control"
+                required
+                name="description"
+                placeholder="description"
+                [(ngModel)]="quiz.description"
+                #t="ngModel"
+                required minlength="3"
+              />
+              <small style="color:red;" *ngIf="!t.valid && t.touched">
+                The description is a required field  
+                  </small >
+            </div>
+            <form [formGroup]="formEtape">
+              <label class="col-md-12">Steps</label>
+              <div class="col-md-12">
+                <select class="form-control" formControlName="etapeID"   >
+                  <option *ngFor="let item of etape" [value]="item.idEtape">
+                    {{ item.step_titre }}
+                  </option>
+                </select>
+                <small style="color:red;" *ngIf="!formEtape.controls['etapeID'].valid && formEtape.controls['etapeID'].touched">
+                  The Step is a required field
+                     
+                    </small >
+              </div>
+            </form>
+            <label class="col-md-12">Marck</label>
+            <div class="col-md-12">
+              <input
+                type="number"
+                class="form-control"
+                placeholder="Marck"
+                required
+                name="maxMarks"
+                required
+                [(ngModel)]="quiz.maxMarks"
+                #s="ngModel"
+                required minlength="1"
+              />
+              <small style="color:red;" *ngIf="!s.valid && s.touched">
+                The Marck is a required field  
+                  </small >
+            </div>
+            <label class="col-md-12">Number Of Question</label>
+            <div class="col-md-12">
+              <input
+                type="number"
+                class="form-control"
+                placeholder="Number Of Question"
+                required
+                name="numberOfQuestions"
+                [(ngModel)]="quiz.numberOfQuestions"
+                #n="ngModel"
+                pattern="[0-9]"
+              />
+              <small style="color:red;" *ngIf="!n.valid && n.touched">
+                The Number Of Question is a required field  
+                  </small >
+            </div>
+            <br />
+            <div class="col-md-12">
+              <section class="example-section">
+                <mat-slide-toggle
+                  name="active"
+                  class="example-margin"
+                  [(ngModel)]="quiz.active"
+                >
+                  Publish Quiz for users!
+                </mat-slide-toggle>
+              </section>
+            </div>
+            <!-- <div class="col-md-12">
+              <div class="form-group">
+                <label>Interested in</label>
+                <select class="form-control" formControlName="etapeType">
+                  <option value="QUIZ">QUIZ</option>
+                  <option value="COUR">COURS</option>
+                </select>
+              </div>
+            </div> -->
+            <br />
+            <button
+              type="button"
+              class="btn btn-primary float-right"
+              (click)="addQuizf()"
+            >
+              Save changes
+            </button>
+            <button
+            type="button"
+            class="btn btn-secondary"
+            data-dismiss="modal"
+          >
+            Close
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <-Modale update Cours -->
+
+<!-- <-Modale update Cours -->
+<div class="modal center-modal fade" id="modal-center7" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">update Cours</h5>
+        <button type="button" class="close" id="closeModalupdatecours" data-dismiss="modal">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" [formGroup]="formCours">
+          <div class="form-group">
+            <label class="col-md-12">Description </label>
+            <div class="col-md-12">
+              <input
+                type="text"
+                class="form-control"
+                name="description"
+                formControlName="description"
+              />
+            </div>
+          
+
+            <label class="col-md-12">Photo</label>
+            <div class="col-md-12">
+              <input
+                class="form-control"
+                type="file"
+                id="formFile"
+                type="file"
+                formControlName="file"
+                multiple
+                (change)="handleFileInput($event)"
+              />
+            </div>
+
+            <div class="col-md-12">
+              <div>
+                <div>
+                  <label>Etape : </label>
+                  <select class="form-control" formControlName="etape_id_etape">
+                    <option *ngFor="let item of etape" [value]="item.idEtape">
+                      {{ item.step_titre }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <br />
+
+            <br />
+            <button
+              type="button"
+              class="btn btn-primary float-right"
+              (click)="EditCours()"
+            >
+              Save changes
+            </button>
+            <button
+            type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- end Update Cours -->
+
+<!-- end Update Cours -->
+
+<!-- /.box -->
+
+<!-- <-Modale update Cours -->
+<div class="modal center-modal fade" id="modal-center6" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">add new Cours</h5>
+        <button type="button" class="close"   id="closeModalAjoutcours" data-dismiss="modal">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" [formGroup]="formCours">
+          <div class="form-group">
+            <label class="col-md-12">Description </label>
+            <div class="col-md-12">
+              <input
+                type="text"
+                class="form-control"
+                required
+                name="description"
+                formControlName="description"
+                
+              />
+              <small style="color:red;" *ngIf="!formCours.controls['description'].valid && formCours.controls['description'].touched || (utilisateurSubmitted  && !formCours.controls['description'].valid)">
+                The description is a required field
+                   
+                  </small >
+            </div>
+           
+            <label class="col-md-12">Photo</label>
+            <div class="col-md-12">
+              <input
+                class="form-control"
+                type="file"
+                id="formFile"
+                type="file"
+                formControlName="photo"
+                multiple
+                (change)="handleFileInput($event)"
+              />
+              <small style="color:red;" *ngIf="!formCours.controls['photo'].valid && formCours.controls['photo'].touched || (utilisateurSubmitted  && !formCours.controls['photo'].valid)">
+                The description is a required field
+                   
+                  </small >
+            </div>
+
+            <div class="col-md-12">
+              <div>
+                <div>
+                  <label>Steps : </label>
+                  <select class="form-control" formControlName="etape_id_etape">
+                    <option *ngFor="let item of etape" [value]="item.idEtape">
+                      {{ item.step_titre }}
+                    </option>
+                  </select>
+                  <small style="color:red;" *ngIf="!formCours.controls['etape_id_etape'].valid && formCours.controls['etape_id_etape'].touched || (utilisateurSubmitted  && !formCours.controls['etape_id_etape'].valid)">
+                    The Steps  is a required field
+                       
+                      </small >
+                </div>
+              </div>
+            </div>
+            <br />
+
+            <br />
+            <button
+              type="button"
+              class="btn btn-primary float-right"
+              (click)="onSubmit()"
+            >
+              Save changes
+            </button>
+            <button
+            type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- /.modal -->
+<!-- <div
+  id="myModal2"
+  class="modal fade in"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="myModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Add Cours</h4>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-hidden="true"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" name="form" [formGroup]="formCours">
+          <div class="form-group">
+            <label class="col-md-12">Description :</label>
+            <div class="col-md-12">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Titre"
+                name="titre"
+                formControlName="description"
+              />
+            </div>
+
+            <label class="col-md-12">Photo :</label>
+            <div class="col-md-12">
+              <input
+                class="form-control"
+                type="file"
+                id="formFile"
+                type="file"
+                multiple
+                (change)="handleFileInput($event)"
+              />
+            </div>
+            <label class="col-md-12">date :</label>
+            <div class="col-md-12">
+              <input class="form-control" type="date" formControlName="date" />
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div>
+              <div>
+                <label>Etape : </label>
+                <select class="form-control" formControlName="etape_id_etape">
+                  <option *ngFor="let item of etape" [value]="item.idEtape">
+                    {{ item.step_titre }}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" (click)="onSubmit()" class="btn btn-success">
+              Add
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+     /.modal-content -->
+<!-- </div>
+  < /.modal-dialog -->
+<!-- </div> -->
+<div class="modal center-modal fade" id="modal-center77" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">update Video</h5>
+        <button type="button" class="close"  id="closeModalupdatevideo" data-dismiss="modal">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" [formGroup]="formVideo">
+          <div class="form-group">
+            <label class="col-md-12">Description </label>
+            <div class="col-md-12">
+              <input
+                type="text"
+                class="form-control"
+                name="name"
+                formControlName="name"
+              />
+            </div>
+          
+
+            <label class="col-md-12">Photo</label>
+            <div class="col-md-12">
+              <input
+                class="form-control"
+                type="file"
+                id="formFile"
+                type="file"
+                formControlName="file"
+                multiple
+                (change)="handleFileInput($event)"
+              />
+            </div>
+
+            <div class="col-md-12">
+              <div>
+                <div>
+                  <label>Etape : </label>
+                  <select class="form-control" formControlName="etape_id_etape">
+                    <option *ngFor="let item of etape" [value]="item.idEtape">
+                      {{ item.step_titre }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <br />
+
+            <br />
+            <button
+              type="button"
+              class="btn btn-primary float-right"
+              (click)="EditVideo()"
+            >
+              Save changes
+            </button>
+            <button
+            type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

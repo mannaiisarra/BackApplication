@@ -1,0 +1,212 @@
+.list-group.list-group-root {
+    padding: 0;
+    overflow: hidden;
+    }
+
+    .list-group.list-group-root .list-group {
+    margin-bottom: 0;
+    }
+
+    .list-group.list-group-root .list-group-item {
+    border-radius: 0;
+    border-width: 1px 0 0 0;
+    }
+
+    .list-group.list-group-root > .list-group-item:first-child {
+    border-top-width: 0;
+    }
+
+    .list-group.list-group-root > .list-group > .list-group-item {
+    padding-left: 30px;
+    }
+
+    .list-group.list-group-root > .list-group > .list-group > .list-group-item {
+    padding-left: 45px;
+    }
+
+    .list-group-item .glyphicon {
+    margin-right: 5px;
+    }
+
+    
+
+   
+    .mat-form-field + .mat-form-field {
+        margin-left: 8px;
+      }
+      
+
+      .example-action-buttons {
+        padding-bottom: 20px;
+      }
+      
+      .example-headers-align .mat-expansion-panel-header-title,
+      .example-headers-align .mat-expansion-panel-header-description {
+        flex-basis: 0;
+      }
+      
+      .example-headers-align .mat-expansion-panel-header-description {
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .example-headers-align .mat-form-field + .mat-form-field {
+        margin-left: 8px;
+      }
+      
+      .example-headers-align .mat-expansion-panel-header-title,
+      .example-headers-align .mat-expansion-panel-header-description {
+        flex-basis: 0;
+      }
+      
+      .example-headers-align .mat-expansion-panel-header-description {
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .example-headers-align .mat-form-field + .mat-form-field {
+        margin-left: 8px;
+      }
+      
+      .example-button-container {
+        display: flex;
+        justify-content: center;
+        width: 120px;
+      }
+      .example-button-row {
+        display: table-cell;
+        width: 490px;
+      }
+      
+      .example-button-row .mat-button-base {
+        margin: 8px 8px 8px 0;
+      }
+      
+      .example-flex-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      .example-form-field {
+        width: 100%;
+      }
+      .example-radio-group {
+        display: flex;
+        flex-direction: column;
+        margin: 15px 0;
+        align-items: flex-start;
+      }
+      
+      .example-radio-button {
+        margin: 5px;
+      }
+      ul {
+        list-style-type:none;
+       
+        }
+      li {
+          list-style:none;
+        }
+
+        .example-form {
+          min-width: 150px;
+          max-width: 500px;
+          width: 100%;
+        }
+        
+        .example-full-width {
+          width: 100%;
+        }
+        
+.wrapper{
+  max-width: 600px;
+  margin: 20px auto;
+}
+.content{
+  padding: 20px;
+  padding-bottom: 50px;
+}
+a:hover{
+  text-decoration: none;
+}
+a,span{
+  font-size: 15px;
+  font-weight: 600;
+  color: rgb(50, 141, 245);
+  padding-bottom: 30px;
+}
+p.text-muted{
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+b{
+  font-size: 15px;
+  font-weight: bolder;
+}
+.option{
+  display: block;
+  height: 50px;
+  background-color: #dbdbdb;
+  position: relative;
+  width: 100%;
+}
+.option:hover{
+  background-color: #e8e8e8;
+  cursor: pointer;
+}
+.option input{
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.checkmark,.crossmark{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  height: 22px;
+  width: 22px;
+  background-color: #f4f4f4;
+  border-radius: 2px;
+  padding: 0;
+}
+.option:hover input ~ .checkmark,
+.option:hover input ~ .crossmark{
+background-color: #e8e8e8;
+}
+.option input:checked ~ .checkmark {
+  background-color: #79d70f;
+}
+.option input:checked ~ .crossmark {
+  background-color: #ec3838;
+}
+.checkmark:after,.crossmark:after {
+  content: "\2714";
+  position: absolute;
+  background-color: #79d70f;
+  display: none;
+  color: #fff;
+  padding-left: 4px;
+  width: 22px;
+  font-size: 16px;
+}
+.crossmark:after{
+  content: "\2715";
+  background-color: #ec3838;
+}
+.option input:checked ~ .checkmark:after,
+.option input:checked ~ .crossmark:after {
+  display: block;
+  transition: 100ms ease-out 1s;
+}
+p.mb-4{
+  border-left: 3px solid green;
+}
+p.my-2{
+  border-left: 3px solid red;   
+}
+.sarra{
+  height:100px;
+  width: 100%;
+}

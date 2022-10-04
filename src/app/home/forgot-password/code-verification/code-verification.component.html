@@ -1,0 +1,99 @@
+
+<div
+class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto"
+style="background-image: url(assets/images/auth-bg/bg-2.jpg)"
+class="container-login100"
+>
+<div class="">
+  <div class="">
+    <div class="col-lg-6">
+      <img src="assets/images/najte.png" class="logo" />
+    </div>
+    <br><br><br>
+<div class="row">
+
+
+
+   
+<div class="col-12"  *ngIf="!isSubmit">
+<div class="row justify-content-center no-gutters">
+<div class="col-lg-4 col-md-5 col-12">						
+    <div class="bg-white rounded30 shadow-lg">
+        <div class="content-top-agile p-20 pb-0">
+            <h3 class="mb-0 text-primary">Enter the security code</h3>								
+        </div>
+        <div class="p-40">
+            <h4>You should have received a text message with a code on your phone. This code contains 4 characters.</h4>
+          
+            <form action="https://eduadmin-template.multipurposethemes.com/bs4/main-semidark/index.html" [formGroup]="formUser"   method="post">
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                           
+                        </div>
+                        <input type="text" class="form-control pl-15 bg-transparent" placeholder="Verification code" formControlName="code">
+                    </div>
+                </div>
+                  <div class="row">
+                    <div class="col-12 text-center">
+                      <button type="submit" class="btn btn-info margin-top-10" (click)="VerificationCode()">Confirmer</button>
+                    </div>
+                    <!-- /.col -->
+                  </div>
+            </form>	
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12" *ngIf="isSubmit">
+    <div class="row justify-content-center no-gutters">
+      <div class="col-lg-4 col-md-5 col-12">
+        <div class="bg-white rounded30 shadow-lg">
+          <div class="content-top-agile p-20 pb-0">
+            <h3 class="mb-0 text-primary">Choose a new password</h3>
+          </div>
+          <div class="p-40">
+            <h4>
+              Create a password of at least 6 characters. A strong password is a
+              combination of letters, numbers, and punctuation marks.
+            </h4>
+
+            <form action="https://eduadmin-template.multipurposethemes.com/bs4/main-semidark/index.html" [formGroup]="formPassword"   method="post">
+                <div class="form-group">
+                <div class="input-group mb-3">
+                  <input
+                    type="password"
+                    class="form-control pl-15 bg-transparent"
+                    placeholder="new password"
+                    formControlName="password"
+                  />
+                </div>
+                <div class="input-group mb-3">
+                  <input
+                    type="password"
+                    class="form-control pl-15 bg-transparent"
+                    placeholder="confirm new password"
+                    formControlName="newpassword"
+                  />
+                </div>  
+              </div>
+              <div class="row">
+                <div class="col-12 text-center">
+                  <button type="submit" class="btn btn-info margin-top-10" (click)="save()" >
+                    Confirmer
+                  </button>
+                </div>
+                <!-- /.col -->
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

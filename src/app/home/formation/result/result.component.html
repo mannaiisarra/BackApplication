@@ -1,0 +1,101 @@
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="d-flex align-items-center">
+      <div class="mr-auto">
+        <h2 class="page-title"></h2>
+  
+        <div class="d-inline-block align-items-center">
+          <nav>
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="#">
+                  <h4><i class="ti-view-list-alt"></i></h4
+                ></a>
+              </li>
+  
+              <li class="breadcrumb-item active" aria-current="page">
+                <h4>List of quiz results</h4>
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <section class="content">
+    <div class="row">
+      <div class="col-3"></div>
+      <div class="col-6"></div>
+      <div class="col-3">
+      
+      </div>
+    </div>
+  
+    
+  <div class="card">
+    <div class="row">
+      <div class="col-12">
+        <div class="box">
+          <div class="box-body">
+            <div class="table-responsive">
+              <table
+                id="productorder"
+                class="table table-hover no-wrap product-order"
+                data-page-size=""
+              >
+                <thead class="bg-success">
+                  <tr>
+                    <td></td>
+                    <td>Username</td>
+                    <td>Quiz Name</td>
+                    <td>Resultat</td>
+
+                    <td>Actions</td>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let item of resal; let i = index">
+                  <tr>
+                    <td>
+                      <span class="text-muted">
+                        <img
+                          class="avatar avatar-14 rounded-circle bg-warning-light"
+                          src="{{ base_picture + item.user.photo }}"
+                          alt="..."
+                        />
+                      </span>
+                    </td>
+                    <td>
+                      <span class="text-muted">
+                        {{ item.user.username }}
+                      </span>
+                    </td>
+                    <td>{{ item.quiz.title }}</td>
+
+                    <td>{{ item.marksObtained }}</td>
+                    <td>
+                      <div class="">
+                        <div class="progress progress-sm mb-0">
+                          <div
+                            class="progress-bar progress-bar-primary progress-bar-striped progress-bar-animated"
+                            role="progressbar"
+                            aria-valuenow="75"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                            style="width:{{ item.marksObtained / 20 * 100 }}%"
+                          ></div>
+                        </div>
+                      </div>
+                      <span class="checkmark"></span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+  

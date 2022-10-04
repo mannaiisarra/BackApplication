@@ -1,0 +1,102 @@
+<section class="content">
+    <div class="row">
+      <div class="col-12">
+        <div class="box pull-up">
+          <div class="box-body bg-img bg-primary-light">
+            <div class="d-lg-flex align-items-center justify-content-between">
+              <div class="d-lg-flex align-items-center mb-30 mb-xl-0 w-p100">
+                <img
+                  src="https://eduadmin-template.multipurposethemes.com/bs4/images/svg-icon/color-svg/custom-14.svg"
+                  class="img-fluid max-w-250"
+                  alt=""
+                />
+                <div class="ml-30">
+                  <h2 class="mb-10">
+                    Take Advance Courses to Achive Your Goal !
+                  </h2>
+                  <p class="mb-0 text-fade font-size-18">
+                    It is a long established fact that a reader will be distracted
+                    <br />of a page when looking at its layout.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row fx-element-overlay">
+      <div class="box no-shadow mb-0 bg-transparent">
+        <div class="box-header no-border px-1">
+          <div style="text-align: right">
+            
+          </div>
+        </div>
+      </div>
+  
+      <br /><br /><br />
+      <br />
+  
+      <div
+        class="col-md-6 col-lg-3"
+        *ngFor="let item of demande; let i = index"
+      >
+        <div class="card">
+          <div class="fx-card-item">
+            <div class="fx-card-avatar fx-overlay-1">
+              <img src="{{ base_picture + item.formationn.photo }}" alt="user" />
+              <div class="fx-overlay">
+                <ul class="fx-info">
+                  <li>
+                    <a
+                      class="btn btn-danger no-border"
+                      [routerLink]="['/home/detailformation', item.formationn.id]"
+                      href="javascript:void(0);"
+                      >View More</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+  
+          <div class="card-body">
+            <div class="cour-stac d-flex align-items-center">
+              <!-- <p>Start Date {{ item.date_deDebut | date: "yyyy-MM-dd" }}</p>
+                <p class="lt-sp">|</p>
+                <p> {{ item.id  }}</p> -->
+            </div>
+            <h5>
+              <b
+                class="card-title justify-content-between d-flex align-items-center"
+              >
+                {{ item.formationn.titre }}
+              </b>
+            </h5>
+  
+            <p class="card-text">{{ item.formationn.description }}</p>
+            <p>Start Date {{ item.formationn.date_deDebut | date: "yyyy-MM-dd" }}</p>
+          </div>
+  
+          <div class="card-footer justify-content-between d-flex">
+            <span class="text-muted">
+              <!-- <img
+                class="avatar avatar-14 rounded-circle bg-warning-light"
+                src="{{ base_picture + item[0].users.photo }}"
+                alt="..."
+              /> -->
+            </span>
+            <br />
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- /.content -->
+  
+  <!-- Popup Model Plase Here -->
+  
+  <!-- /Popup Model Plase Here -->
+  

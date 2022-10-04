@@ -1,0 +1,49 @@
+.mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+.strong { 
+  word-spacing: 300px;
+}
+ul {
+  list-style-type:none;
+ 
+  }
+li {
+    list-style:none;
+  }
+  .myDIV{
+    color:rgb(204, 255, 204);
+}
+
+
+.alert.alert-general {
+  background: #d9d9d9
+}
+
+.alert.alert-help {
+  background: #91e3fd
+}
+
+.alert.alert-error {
+  background: #f6bcc3
+}
+
+
+
+.btn-text-left{
+  text-align: left;	
+  }
+  .btn-text-right{
+  text-align: right;
+  }
+
+
+  
+
+
+.form-control.ng-touched.ng-invalid {
+ border:1px solid red;
+}
+.form-control.ng-touched.ng-valid {
+ border:1px solid green;
+}

@@ -1,0 +1,99 @@
+
+
+	  <!-- Main content -->
+	  <section class="content">
+
+        <div class="row">
+          <div class="col-12">
+            <div class="box">
+                <div class="box-header with-border">
+                  <h4 class="box-title">About USER</h4>
+                </div>
+              <div class="box-body">
+                <form 
+                name="form"
+        class="form-horizontal"
+        [formGroup]="formCategory"
+        (ngSubmit)="edit()"> 
+                
+                    <div class="form-body">
+                        <div class="row">
+                          <div class="col-md-6">
+                              <div class="form-group">
+                                 <label class="font-weight-700 font-size-16">Email</label>
+                                 <input type="text" class="form-control" placeholder="username"  name="username"
+               formControlName="username">
+                              </div>
+                          </div>
+
+                            <!--/span-->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                   <label class="font-weight-700 font-size-16">Email</label>
+                                   <input type="text" class="form-control" placeholder="EMAIL"  name="email"
+                 formControlName="email">
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <!--/row-->
+                        <!--/row-->
+                        
+                        <div class="col-md-6">
+                          <div class="form-group">
+                              <label class="font-weight-700 font-size-16">Phone</label>
+                              <input type="text" class="form-control" placeholder="PHONE"   name="phone"
+            formControlName="phone"> </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label class="font-weight-700 font-size-16">Address</label>
+                              <input type="text" class="form-control" placeholder="ADDRESS"   name="adress"
+            formControlName="adress"></div>
+                      </div>
+
+                      <!--/span-->
+                        <!--/row-->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="font-weight-700 font-size-16">Password</label>
+                                    <input type="text" class="form-control" placeholder="PASSWORD"  name="password"
+                  formControlName="password"> </div>
+                            </div>
+                            <!--/span-->
+
+                           
+                            <div class="col-md-6">
+                                
+                                  
+                              <label class="font-weight-700 font-size-16">Upload Anonther Image</label>
+                              <input class="form-control" type="file" id="formFile" type="file"   multiple (change)="handleFileInput($event)" />
+                                  <br><br>						
+                                  
+                                   
+                              
+                            </div>
+                            <br><br>	
+                            <div class="col-md-8">
+                                
+                                  
+                              <button class="btn btn-success">ADD</button>
+                                                    
+                                  
+                                   
+                              
+                            </div>
+                           
+                        </div>
+                      
+                    </div>
+                  
+                </form>
+              </div>
+            </div>
+          </div>		  
+      </div>
+
+    </section>
+    <!-- /.content -->

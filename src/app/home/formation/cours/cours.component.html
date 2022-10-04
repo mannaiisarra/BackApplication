@@ -1,0 +1,127 @@
+<!-- 
+
+<div class="box-header with-border">
+    <h4>
+      <button
+        type="button"
+        class="waves-effect waves-circle btn btn-circle btn-primary btn-xs mb-5"
+      >
+        {{ i + 1 }}
+      </button>
+      Question :
+    </h4>
+
+    <div class="table-responsive"></div>
+    <ul class="box-controls pull-right">
+      <li class="dropdown">
+        <a data-toggle="dropdown" href="#"
+          ><i class="ti-more-alt rotate-90"></i
+        ></a>
+        <div class="dropdown-menu dropdown-menu-right">
+          <a
+            class="dropdown-item"
+            (click)="removeQuestion(question.quesId)"
+          >
+            <i class="fa fa-trash" aria-hidden="true"></i> Delate</a
+          >
+          <a class="dropdown-item"><i class="fa fa-edit"></i> Edit</a>
+        </div>
+      </li>
+    </ul>
+
+    <div class="text-left">
+      <h4 class="box-title">
+        <u><span [innerHtml]="question.content"></span></u>
+      </h4>
+      <br /><br />
+      <p class="box-text">The correct answer is :</p>
+      <div class="controls">
+        <div class="help-block"></div>
+        a)
+        <input
+          *ngIf="question.answer == question.option1"
+          type="checkbox"
+          aria-invalid="false"
+          [checked]="false"
+          disabled
+        />
+        <input
+          *ngIf="question.answer != question.option2"
+          type="checkbox"
+          id="checkbox_1"
+          required="true"
+          value="single"
+          aria-invalid="false"
+          [checked]="true"
+        />
+        <label class="options"> {{ question.option1 }}</label
+        ><br />
+        b)
+        <input
+          *ngIf="question.answer == question.option1"
+          type="checkbox"
+          id="checkbox_1"
+          required="true"
+          value="single"
+          aria-invalid="false"
+          [checked]="false"
+          disabled
+        />
+        <input
+          *ngIf="question.answer != question.option1"
+          type="checkbox"
+          id="checkbox_1"
+          required="true"
+          value="single"
+          aria-invalid="false"
+          [checked]="true"
+        />
+        <label class="options"> {{ question.option2 }}</label
+        ><br />
+        c)
+        <input
+          *ngIf="question.answer == question.option1"
+          type="checkbox"
+          id="checkbox_1"
+          required="true"
+          value="single"
+          aria-invalid="false"
+          [checked]="false"
+          disabled
+        />
+        <input
+          *ngIf="question.answer != question.option1"
+          type="checkbox"
+          id="checkbox_1"
+          required="true"
+          value="single"
+          aria-invalid="false"
+          [checked]="true"
+        />
+        <label class="options"> {{ question.option3 }}</label
+        ><br />
+        d)
+        <input
+          *ngIf="question.answer == question.option1"
+          type="checkbox"
+          id="checkbox_1"
+          required="true"
+          value="single"
+          aria-invalid="false"
+          [checked]="false"
+          disabled
+        />
+        <input
+          *ngIf="question.answer != question.option1"
+          type="checkbox"
+          id="checkbox_1"
+          required="true"
+          value="single"
+          aria-invalid="false"
+          [checked]="true"
+        />
+        <label class="options"> {{ question.option4 }}</label
+        ><br /><br />
+      </div>
+    </div>
+  </div>  -->
